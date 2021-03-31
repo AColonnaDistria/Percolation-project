@@ -2,9 +2,10 @@
 
 
 
-A program to simulate the process of percolation
+A program written in Python to simulate the process of percolation
 
+- Uses pygame library
 - Can create random configuration for L^2
 - Can change size & probability p with sliders
-- Detect clusters with bfs algorithm or dfs algorithm and color them
+- Detects clusters with bfs algorithm or dfs algorithm and color them
 - The biggest cluster is colored in red
