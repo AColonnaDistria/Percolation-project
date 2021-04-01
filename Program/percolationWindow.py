@@ -299,7 +299,7 @@ network = initialize(network, N)
 network = percolate(network, N, probability)
 
 network0 = network
-dualNetwork = dual(network, N)
+dualNetwork = [] #dual(network, N)
 
 #dfs_subexplore(network, N, (60, 50), (50,50), 1)
 
@@ -307,6 +307,8 @@ if showOpenClusters:
     maxid = bfs_iterative(network, N)
 else:
     maxid = -1
+
+maxIdDual = -1
 
 pygame.init()
 
@@ -412,8 +414,8 @@ while not closed:
                 network = percolate(network, N, probability)
                                 
                 network0 = network
-                dualNetwork = dual(network, N)
-
+                dualNetwork = []
+                
                 if showOpenClusters:
                     maxid = bfs_iterative(network, N)
                 else:
@@ -426,10 +428,16 @@ while not closed:
 
             if dualButtonLocation[0] <= mouse[0] <= dualButtonLocation[0] + dualButtonSize[0] and dualButtonLocation[1] <= mouse[1] <= dualButtonLocation[1] + dualButtonSize[1]: 
                 if not isDual:
+                    if dualNetwork == []:
+                        dualNetwork = dual(network0, N)
+                    
                     network = dualNetwork
                 else:
                     network = network0
                 isDual = not isDual
+                if isDual and showOpenClusters:
+                    maxIdDual = bfs_iterative(dualNetwork, N)
+                    
                 updateAll()
     
             if opClustersCheckboxLocation[0] <= mouse[0] <= opClustersCheckboxLocation[0] + opClustersCheckboxSize[0] and opClustersCheckboxLocation[1] <= mouse[1] <= opClustersCheckboxLocation[1] + opClustersCheckboxSize[1]: 
