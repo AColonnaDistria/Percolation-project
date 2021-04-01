@@ -9,3 +9,5 @@ A program written in Python to simulate the process of percolation
 - Can change size & probability p with sliders
 - Detects clusters with bfs algorithm or dfs algorithm and color them
 - The biggest cluster is colored in red
+- Screenshot is available
+- Generating a dual graph (still not complete)
