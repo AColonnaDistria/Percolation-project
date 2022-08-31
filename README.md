@@ -11,3 +11,4 @@ A program written in Python to simulate the process of percolation
 - The biggest cluster is colored in red
 - Screenshot is available
 - Generating a dual graph (still not complete)
+- Report is available in pdf and LaTex format
